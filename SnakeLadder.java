@@ -11,12 +11,12 @@ public class SnakeLadder {
 		    int dicePosition=0;
 		    int min = 1;  
 			int max = 6;
-			
 			System.out.println("Random value of type double between "+min+" to "+max+ ":");  
 			while(dicePosition<100) {
-			dice = (int)Math.random()*(max-min+1)+min;   
+			
+			dice = (int)(Math.random()*(max-min+1))+min;   
 					System.out.println("dice is "+dice);
-					 check = (int)Math.random()*(2-1+1)+1;   
+					 check = (int)(Math.random()*(2-1+1))+1;   
 					System.out.println("check is "+check);
 		    switch (check) {
 		     case LADDER:{
@@ -26,7 +26,7 @@ public class SnakeLadder {
 		    
 		     case SNAKE:{
 		    	            System.out.println("got snake");
-		    		        dicePosition=dice-dicePosition;
+		    		        dicePosition=dicePosition-dice;
 		    		    	if(dicePosition<0) {
 		    		    	dicePosition=0;
 		    		    }
@@ -36,5 +36,12 @@ public class SnakeLadder {
 		    }
 					}
 			System.out.println("Player is at the position:"+dicePosition);
+			if(dicePosition>100){				
+				dice = (int)(Math.random()*(max-min+1))+min;   
+				System.out.println("dice is "+dice);
+				 check = (int)(Math.random()*(2-1+1))+1;   
+				System.out.println("check is "+check);
+		     dicePosition=dicePosition-dice;}
+			System.out.println("Player is at the position:"+dicePosition); 
 		    }
 		    }
